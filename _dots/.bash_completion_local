@@ -1,0 +1,35 @@
+#!/bin/bash
+
+
+
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+    return;
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+    return;
+  fi
+fi
+
+
+
+function _ssh_history_hosts()
+{
+
+local SSHHISTORY;
+SSHHISTORY=`history |grep -o  'ssh [a-z][a-z0-9@.-]\{5,99\}' | sort | uniq | sed 's/\(ssh \)//'`;
+
+local curr_arg;
+
+  curr_arg=${COMP_WORDS[COMP_CWORD]}
+
+  COMPREPLY=( $(compgen -W '$SSHHISTORY' -- $curr_arg ) );
+}
+
+
+complete -F _ssh_history_hosts ssh
