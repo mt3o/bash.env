@@ -1,5 +1,27 @@
 [[ -z "$PS1" ]] && return
 
+
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color) color_prompt=yes;;
+esac
+
+
+
+
+
+
 export dot_env_path="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 export dot_env_custom="${dot_env_path}/custom"
 
