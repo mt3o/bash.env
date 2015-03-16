@@ -1,0 +1,52 @@
+#!/bin/bash
+
+inotifywait --format '%w%f' -m -e close_write,moved_to "`pwd`" | while read -r filename; do 
+
+name="$(echo "$filename" | sed -e "s/\.[^\.]*$//")"
+
+#echo Dopasowany adres: $name
+#echo a teraz podmiana
+
+if [[  $filename =~ ^.*\.less$ ]]; then
+  
+  
+  /usr/local/bin/lessc "${filename}" --source-map-map-inline --source-map-less-inline | autoprefixer > "$name".css;
+
+
+  if [ ${PIPESTATUS[0]}  = 0 ]; then
+    notify-send "LESS ok" "$file compiled with success" -i face-cool -t 1
+       echo +---------------+
+       echo ${filename}.css compiled at $(date +"%r")
+       echo +---------------+
+  else
+    notify-send "LESS compilation error!" "Compilation $file failed!" -i face-embarrassed -t 2
+  fi
+
+
+elif [[ $filename =~ ^.*\.scss$ ]]; then
+
+  cat "${filename}" |  sass --stdin --scss | autoprefixer > "$name".css;
+
+elif [[ $filename =~ ^.*\.sass$ ]]; then
+
+  cat "${filename}" |  sass --stdin | autoprefixer > "$name".css;
+
+
+else
+
+	echo "$filename" not matched
+
+fi
+
+
+
+
+
+
+
+
+
+
+
+
+done

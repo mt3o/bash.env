@@ -1,0 +1,9 @@
+#!/bin/bash
+
+
+  xinput --set-int-prop $(
+    xinput --list |
+    ruby -ane 'if /AT.*keyboard/ then puts $_.match(/(?<==)\d+/) end'
+  ) "Device Enabled" 8 0
+
+

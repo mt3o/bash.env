@@ -1,0 +1,1 @@
+sshfs web2.mydevil.net:/home/mt3o ~/fuse/web2.mydevil.net -o reconnect,big_writes,cache_timeout=600,cache_stat_timeout=600,cache_link_timeout=600,follow_symlinks

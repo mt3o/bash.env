@@ -1,2 +1,27 @@
+"\C-x\C-r": re-read-init-file
+
+
 "\e[A": history-search-backward
 "\e[B": history-search-forward
+
+# Make Tab autocomplete regardless of filename case
+set completion-ignore-case on
+
+# Immediately add a trailing slash when autocompleting symlinks to directories
+set mark-symlinked-directories on
+
+
+# Show extra file information when completing, like `ls -F` does
+set visible-stats on
+
+
+# Use Alt/Meta + Delete to delete the preceding word
+#"\e[3;3~": kill-word
+
+set completion-prefix-display-length 3
+
+
+#"I":self-insert
+
+#"\C-j": menu-complete
+#"\C-k": menu-complete-backward

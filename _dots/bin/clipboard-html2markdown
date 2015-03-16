@@ -1,0 +1,3 @@
+#!/bin/bash
+
+xclip -o -selection clipboard -t text/html |  pandoc -r html -w markdown |  xclip -i -selection clipboard

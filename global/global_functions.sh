@@ -176,3 +176,6 @@ try_theme() {
   export theme="$1"
   . $dot_env_path/themes/load_theme.sh
 }
+
+
+
