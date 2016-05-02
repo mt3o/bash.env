@@ -1,0 +1,2 @@
+sshfs s2.mydevil.net:/home/mt3o /home/mt3o/sshfs/s2.mydevil.net -o big_writes,hard_remove,kernel_cache,reconnect,transform_symlinks,follow_symlinks
+

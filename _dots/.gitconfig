@@ -1,1 +1,7 @@
-/home/mt3o/.gitconfig
+[user]
+	email = teodor.kulej@gmail.com
+	name = T
+[branch]
+	autosetuprebase = always
+[core]
+	autocrlf = input
