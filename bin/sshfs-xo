@@ -1,1 +1,0 @@
-sshfs xoworks@s4.mydevil.net:/home/xoworks /home/mt3o/sshfs/xoworks\@s4.mydevil.net -o big_writes,hard_remove,kernel_cache,reconnect,transform_symlinks,follow_symlinks

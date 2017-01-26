@@ -8,6 +8,7 @@ export LESS_TERMCAP_md="${yellow}";
 export MANPAGER='less -X';
 
 # Always enable colored `grep` output.
-export GREP_OPTIONS='--color=auto';
+#export GREP_OPTIONS='--color=auto';
 
+alias grep="grep --color=auto"
 
