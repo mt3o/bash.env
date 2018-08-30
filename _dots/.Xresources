@@ -14,7 +14,11 @@ xterm*rightScrollBar:     true
 xterm*jumpScroll:         true
 xterm*multiScroll:        true
 xterm*toolBar:            false
+!xterm*Background: black
+!xterm*Foreground: white
 
+XTerm*Background: dark slate gray
+XTerm*Foreground: antique white
 
 !aterm settings-------------------------------------------------------------     
 
